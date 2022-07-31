@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: taskmgmt
+spec:
+  selector:
+    matchLabels:
+      app: taskmgmt
+  template:
+    metadata:
+      labels:
+        app: taskmgmt
+    spec:
+      containers:
+      - name: taskmgmt
+        image: 0920mzy/taskmgmt:1.0.0
+        env:
+        - name: RABBITMQ_HOST
+          value: "rabbitmq"
+        - name: RABBITMQ_PORT
+          value: "5672"
